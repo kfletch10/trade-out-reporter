@@ -278,7 +278,7 @@ def clean_dataframe(df):
     df = df.dropna(how='all').dropna(axis=1, how='all')
     
     # Clean column names - handle line breaks and extra spaces
-    df.columns = df.columns.astype(str).str.replace('\r\n', ' ').str.replace('\n', ' ').str.strip()
+    df.columns = df.columns.astype(str).str.replace(r'\r\n', ' ', regex=True).str.replace(r'\n', ' ', regex=True).str.strip()
     
     return df
 
